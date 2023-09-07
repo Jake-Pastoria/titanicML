@@ -86,17 +86,6 @@ def trainJ(depth):
 st.button("Click to train model!", on_click=trainJ(slida))
 
 
-
-
-
-
-
-
-
-
-
-
-
 #fig = px.pie(
 #    da,
 #    values='Survived',
