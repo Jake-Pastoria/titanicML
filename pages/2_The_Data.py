@@ -60,30 +60,9 @@ inputX = db
 
 st.dataframe(db, hide_index=True)
 
+st.write("Click on 'training' in the sidebar to continue!")
 
 
-
-
-st.subheader("\nMachine Learning Model Training/Testing")
-st.write("We will be using a decision tree classifier, which uses a decision tree to \
-           classify whether or not a passenger survived")
-
-
-slida = st.slider("Choose a max depth of neural network:", value=10, max_value=50, min_value=1)
-
-def trainJ(depth):
-    X_train, X_test, y_train, y_test = train_test_split(inputX, outputY, test_size=0.25)
-    DT2 = DecisionTreeClassifier(max_depth=depth)
-    DT2.fit(X_train,y_train)
-    fig = plt.figure(figsize=(30,30))
-    prediction = DT2.predict(X_test)
-    tree.plot_tree(DT2, filled=True, feature_names=["Class", "Sex", "Age", "Fare"], class_names=["Lived", "Died"])
-    fig.savefig("decision_tree.png")
-    st.write("The accuracy score of the model is: " + str(np.round(accuracy_score(y_test,prediction), 6)))
-    st.write("The mean absolute error of the model is: " + str(np.round(mean_absolute_error(y_test,prediction), 6)))
-    st.image("decision_tree.png")
-
-st.button("Click to train model!", on_click=trainJ(slida))
 
 
 #fig = px.pie(
